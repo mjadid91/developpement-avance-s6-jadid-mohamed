@@ -9,3 +9,6 @@
 .vscode/
 .vs/
 .idea/
+
+*.sln
+.vsconfig
