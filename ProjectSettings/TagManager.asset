@@ -41,10 +41,10 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Platforms
+  - name: Background
     uniqueID: 1201478995
     locked: 0
-  - name: Background
+  - name: Platforms
     uniqueID: 949486893
     locked: 0
   m_RenderingLayers:
