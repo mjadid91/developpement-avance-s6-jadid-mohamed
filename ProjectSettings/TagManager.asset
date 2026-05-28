@@ -13,7 +13,7 @@ TagManager:
   - UI
   - Platforms
   - Background
-  - 
+  - Player
   - 
   - 
   - 
@@ -46,6 +46,9 @@ TagManager:
     locked: 0
   - name: Platforms
     uniqueID: 949486893
+    locked: 0
+  - name: Player
+    uniqueID: 3148665007
     locked: 0
   m_RenderingLayers:
   - Default
