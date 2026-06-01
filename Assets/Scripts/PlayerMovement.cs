@@ -1,16 +1,13 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class NewMonoBehaviourScript : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    private Vector2 moveInput;
 
-    // Update is called once per frame
-    void Update()
+    void OnMove(InputValue value)
     {
-        
+        moveInput = value.Get<Vector2>();
+        Debug.Log(moveInput);
     }
 }
