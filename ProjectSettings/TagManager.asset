@@ -14,7 +14,7 @@ TagManager:
   - Platforms
   - Background
   - Player
-  - 
+  - Ladders
   - 
   - 
   - 
@@ -49,6 +49,9 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 3148665007
+    locked: 0
+  - name: Ladders
+    uniqueID: 2936915263
     locked: 0
   m_RenderingLayers:
   - Default
