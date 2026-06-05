@@ -2603,6 +2603,10 @@ PrefabInstance:
       propertyPath: m_BodyType
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 816386439905796870, guid: fa95f54cff662824086a263cebe646b7, type: 3}
+      propertyPath: m_Simulated
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1266017546389854685, guid: fa95f54cff662824086a263cebe646b7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.99
