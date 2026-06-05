@@ -7,21 +7,25 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D myRigidbody2D;
     private Animator myAnimator;
     private BoxCollider2D myFeetCollider;
+    private CapsuleCollider2D myBodyCollider;
 
     [SerializeField] private float runSpeed = 10f;
     [SerializeField] private float jumpSpeed = 12f;
+    [SerializeField] private float climbSpeed = 5f;
 
     void Start()
     {
         myRigidbody2D = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
         myFeetCollider = GetComponent<BoxCollider2D>();
+        myBodyCollider = GetComponent<CapsuleCollider2D>();
     }
 
     void Update()
     {
         Run();
         FlipSprite();
+        ClimbLadder();
     }
 
     void OnMove(InputValue value)
@@ -71,5 +75,25 @@ public class PlayerMovement : MonoBehaviour
     bool isTouchingTheGround()
     {
         return myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Platforms"));
+    }
+
+    bool isTouchingALadder()
+    {
+        return myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Ladders"));
+    }
+
+    void ClimbLadder()
+    {
+        if (!isTouchingALadder())
+        {
+            return;
+        }
+
+        Vector2 climbVelocity = new Vector2(
+            myRigidbody2D.linearVelocity.x,
+            moveInput.y * climbSpeed
+        );
+
+        myRigidbody2D.linearVelocity = climbVelocity;
     }
 }
