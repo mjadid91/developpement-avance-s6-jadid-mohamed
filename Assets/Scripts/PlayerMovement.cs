@@ -8,9 +8,10 @@ public class PlayerMovement : MonoBehaviour
     private Animator myAnimator;
     private BoxCollider2D myFeetCollider;
     private CapsuleCollider2D myBodyCollider;
+    private float gravityScaleAtStart;
 
     [SerializeField] private float runSpeed = 10f;
-    [SerializeField] private float jumpSpeed = 12f;
+    [SerializeField] private float jumpSpeed = 8f;
     [SerializeField] private float climbSpeed = 5f;
 
     void Start()
@@ -19,6 +20,8 @@ public class PlayerMovement : MonoBehaviour
         myAnimator = GetComponent<Animator>();
         myFeetCollider = GetComponent<BoxCollider2D>();
         myBodyCollider = GetComponent<CapsuleCollider2D>();
+
+        gravityScaleAtStart = myRigidbody2D.gravityScale;
     }
 
     void Update()
@@ -84,16 +87,22 @@ public class PlayerMovement : MonoBehaviour
 
     void ClimbLadder()
     {
-        if (!isTouchingALadder())
+        if (isTouchingALadder())
         {
-            return;
+            Vector2 climbVelocity = new Vector2(
+                myRigidbody2D.linearVelocity.x,
+                moveInput.y * climbSpeed
+            );
+
+            myRigidbody2D.linearVelocity = climbVelocity;
+            myRigidbody2D.gravityScale = 0f;
+
+            myAnimator.SetBool("isClimbing", true);
         }
-
-        Vector2 climbVelocity = new Vector2(
-            myRigidbody2D.linearVelocity.x,
-            moveInput.y * climbSpeed
-        );
-
-        myRigidbody2D.linearVelocity = climbVelocity;
+        else
+        {
+            myRigidbody2D.gravityScale = gravityScaleAtStart;
+            myAnimator.SetBool("isClimbing", false);
+        }
     }
 }
