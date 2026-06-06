@@ -124,20 +124,21 @@ public class PlayerMovement : MonoBehaviour
 
     void Die()
     {
+        Debug.Log("Spikes feet touch: " + myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Spikes")));
+
         if (
             myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Enemy")) ||
-            myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Water"))
+            myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Water")) ||
+            myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Spikes"))
         )
         {
             isAlive = false;
-
             myAnimator.SetTrigger("Dying");
 
             myBodyCollider.enabled = false;
             myFeetCollider.enabled = false;
 
-            myRigidbody2D.linearVelocity =
-                new Vector2(0f, deathKick);
+            myRigidbody2D.linearVelocity = new Vector2(0f, deathKick);
 
             stateDrivenCamera.enabled = false;
         }
