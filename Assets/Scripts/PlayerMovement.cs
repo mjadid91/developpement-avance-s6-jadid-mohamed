@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Unity.Cinemachine;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -9,7 +10,10 @@ public class PlayerMovement : MonoBehaviour
     private BoxCollider2D myFeetCollider;
     private CapsuleCollider2D myBodyCollider;
     private float gravityScaleAtStart;
-
+    private bool isAlive = true;
+    
+    [SerializeField] private float deathKick = 10f;
+    [SerializeField] private CinemachineStateDrivenCamera stateDrivenCamera;
     [SerializeField] private float runSpeed = 10f;
     [SerializeField] private float jumpSpeed = 8f;
     [SerializeField] private float climbSpeed = 5f;
@@ -26,24 +30,36 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if (!isAlive)
+        {
+            return;
+        }
+
         Run();
         FlipSprite();
         ClimbLadder();
+        Die();
     }
 
     void OnMove(InputValue value)
     {
+        if (!isAlive)
+        {
+            return;
+        }
+
         moveInput = value.Get<Vector2>();
     }
 
     void OnJump(InputValue value)
     {
-        Debug.Log("Jump input reçu");
-        Debug.Log("Touche le sol : " + isTouchingTheGround());
+        if (!isAlive)
+        {
+            return;
+        }
 
         if (isTouchingTheGround() && value.isPressed)
         {
-            Debug.Log("Jump autorisé");
             myRigidbody2D.linearVelocity += new Vector2(0f, jumpSpeed);
         }
     }
@@ -103,6 +119,24 @@ public class PlayerMovement : MonoBehaviour
         {
             myRigidbody2D.gravityScale = gravityScaleAtStart;
             myAnimator.SetBool("isClimbing", false);
+        }
+    }
+
+    void Die()
+    {
+        if (myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Enemy")))
+        {
+            isAlive = false;
+
+            myAnimator.SetTrigger("Dying");
+
+            myBodyCollider.enabled = false;
+            myFeetCollider.enabled = false;
+
+            myRigidbody2D.linearVelocity =
+                new Vector2(0f, deathKick);
+
+            stateDrivenCamera.enabled = false;
         }
     }
 }
