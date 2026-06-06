@@ -64,6 +64,7 @@
     <Compile Include="Assets\Scripts\EnemyMovement.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\LevelExit.cs" />
+    <Compile Include="Assets\Scripts\GameSession.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

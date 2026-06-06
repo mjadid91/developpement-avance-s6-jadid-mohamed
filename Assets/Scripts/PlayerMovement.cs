@@ -139,6 +139,20 @@ public class PlayerMovement : MonoBehaviour
             myRigidbody2D.linearVelocity = new Vector2(0f, deathKick);
 
             stateDrivenCamera.enabled = false;
+            Invoke("ProcessPlayerDeath", 1f);
         }
+    }
+
+    void ProcessPlayerDeath()
+    {
+        GameSession gameSession = FindFirstObjectByType<GameSession>();
+
+        if (gameSession == null)
+        {
+            Debug.LogError("Aucune GameSession trouvée dans la scène.");
+            return;
+        }
+
+        gameSession.ProcessPlayerDeath();
     }
 }
