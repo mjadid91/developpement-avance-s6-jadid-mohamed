@@ -124,8 +124,6 @@ public class PlayerMovement : MonoBehaviour
 
     void Die()
     {
-        Debug.Log("Spikes feet touch: " + myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Spikes")));
-
         if (
             myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Enemy")) ||
             myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Water")) ||
