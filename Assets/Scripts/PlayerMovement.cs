@@ -133,10 +133,13 @@ public class PlayerMovement : MonoBehaviour
         {
             isAlive = false;
 
-            AudioSource.PlayClipAtPoint(
-                deathSFX,
-                Camera.main.transform.position
-            );
+            if (deathSFX != null && Camera.main != null)
+            {
+                AudioSource.PlayClipAtPoint(
+                    deathSFX,
+                    Camera.main.transform.position
+                );
+            }
 
             myAnimator.SetTrigger("Dying");
 
