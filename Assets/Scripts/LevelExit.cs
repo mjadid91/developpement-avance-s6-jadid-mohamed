@@ -17,6 +17,13 @@ public class LevelExit : MonoBehaviour
 
     void LoadNextScene()
     {
+        ScenePersist scenePersist = FindAnyObjectByType<ScenePersist>();
+
+        if (scenePersist != null)
+        {
+            scenePersist.ResetScenePersist();
+        }
+
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex + 1);
     }

@@ -85,4 +85,17 @@ public class GameSession : MonoBehaviour
     {
         scoreText.text = "Score: " + score.ToString();
     }
+
+    public int GetScore()
+    {
+        return score;
+    }
+
+    public void HideHUD()
+    {
+        if (livesText != null)
+        {
+            livesText.transform.parent.gameObject.SetActive(false);
+        }
+    }
 }
