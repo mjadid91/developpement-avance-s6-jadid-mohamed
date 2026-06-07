@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float runSpeed = 10f;
     [SerializeField] private float jumpSpeed = 8f;
     [SerializeField] private float climbSpeed = 5f;
+    [SerializeField] private AudioClip deathSFX;
 
     void Start()
     {
@@ -131,6 +132,12 @@ public class PlayerMovement : MonoBehaviour
         )
         {
             isAlive = false;
+
+            AudioSource.PlayClipAtPoint(
+                deathSFX,
+                Camera.main.transform.position
+            );
+
             myAnimator.SetTrigger("Dying");
 
             myBodyCollider.enabled = false;
