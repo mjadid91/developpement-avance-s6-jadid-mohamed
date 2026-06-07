@@ -38,7 +38,7 @@ public class GameSession : MonoBehaviour
         }
         else
         {
-            ResetGameSessions();
+            ResetGameSessions("GameOver");
         }
     }
 
@@ -51,9 +51,16 @@ public class GameSession : MonoBehaviour
         SceneManager.LoadScene(currentSceneIndex);
     }
 
-    void ResetGameSessions()
+    public void ResetGameSessions(string sceneName)
     {
-        SceneManager.LoadScene(0);
+        ScenePersist scenePersist = FindAnyObjectByType<ScenePersist>();
+
+        if (scenePersist != null)
+        {
+            scenePersist.ResetScenePersist();
+        }
+
+        SceneManager.LoadScene(sceneName);
         Destroy(gameObject);
     }
 
