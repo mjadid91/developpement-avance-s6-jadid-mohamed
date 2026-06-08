@@ -5,14 +5,14 @@ public class LevelExit : MonoBehaviour
 {
     [SerializeField] private float sceneLoadDelay = 1f;
 
-    void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!other.gameObject.CompareTag("Player"))
-        {
-            return;
-        }
+        Debug.Log("Collision Exit");
 
-        Invoke("LoadNextScene", sceneLoadDelay);
+        if (other.CompareTag("Player"))
+        {
+            LoadNextScene();
+        }
     }
 
     void LoadNextScene()

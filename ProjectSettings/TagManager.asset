@@ -59,5 +59,8 @@ TagManager:
   - name: Enemy
     uniqueID: 547398799
     locked: 0
+  - name: Water
+    uniqueID: 3083565695
+    locked: 0
   m_RenderingLayers:
   - Default
