@@ -64,7 +64,10 @@ Release/
 Assets/
 ├── Animations/
 │   └── Player/
+│   └── Pickups/
+│   └── Enemy/
 ├── Audio/
+│   └── Music/
 ├── Input System/
 ├── Materials/
 ├── Prefabs/
@@ -86,4 +89,4 @@ Aucune fonctionnalité bonus implémentée.
 
 ## Auteur
 
-Mohamed Jadid — BUT Informatique, IUT d'Orsay
+Mohamed Jadid — BUT Informatique, Groupe 6B-1, IUT d'Orsay
