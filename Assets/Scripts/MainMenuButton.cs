@@ -1,9 +1,10 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainMenuButton : MonoBehaviour
 {
     public void BackToMainMenu()
     {
-        FindAnyObjectByType<GameSession>().ResetGameSessions("StartMenu");
+        SceneManager.LoadScene("StartMenu");
     }
 }
