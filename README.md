@@ -6,8 +6,15 @@
 
 ## Description
 
-Jeu de plateforme 2D développé avec Unity, inspiré du style Mario.  
+Jeu de plateforme 2D développé avec Unity, inspiré du style Mario.
+
 Le joueur doit traverser deux niveaux en évitant les ennemis, les pics et l'eau, tout en récupérant des pièces et des points de vie afin d'atteindre la sortie.
+
+Le premier niveau a été conçu comme le niveau principal du jeu. Il permet de découvrir et d'utiliser l'ensemble des mécaniques demandées dans les tutoriels : déplacement, saut, escalade d'échelles, ennemis, pics, eau, collecte de pièces et de points de vie.
+
+Le second niveau est volontairement plus court. Son objectif est de permettre au joueur d'accéder rapidement à la fin de partie afin de démontrer l'ensemble de la boucle de jeu : changement de niveau, conservation des vies et du score, écran de victoire et retour au menu principal.
+
+Ce choix a été fait afin de faciliter la démonstration et la validation de toutes les fonctionnalités demandées dans les tutoriels.
 
 ---
 
@@ -37,6 +44,36 @@ Le joueur doit traverser deux niveaux en évitant les ennemis, les pics et l'eau
 
 ---
 
+## Organisation des niveaux
+
+### Niveau 1
+
+Niveau principal du jeu.
+
+Fonctionnalités présentes : déplacement, saut, escalade d'échelles, ennemis, pics, eau, pièces, points de vie, sortie de niveau.
+
+### Niveau 2
+
+Niveau plus court permettant de terminer rapidement la partie.
+
+Fonctionnalités présentes : ennemis, pièces, points de vie, sortie vers l'écran de victoire.
+
+---
+
+## Boucle de jeu
+
+```
+Menu principal → Niveau 1 → Niveau 2 → Écran de victoire → Menu principal
+```
+
+En cas de perte de toutes les vies :
+
+```
+Niveau en cours → Écran Game Over → Menu principal
+```
+
+---
+
 ## Build
 
 Le build du jeu se trouve dans le dossier :
@@ -63,8 +100,8 @@ Release/
 ```
 Assets/
 ├── Animations/
-│   └── Player/
-│   └── Pickups/
+│   ├── Player/
+│   ├── Pickups/
 │   └── Enemy/
 ├── Audio/
 │   └── Music/
@@ -85,6 +122,7 @@ Assets/
 
 Aucune fonctionnalité bonus implémentée.
 
+L'objectif du projet a été de réaliser un MVP complet et fonctionnel répondant à l'ensemble des fonctionnalités de base demandées dans les tutoriels.
 ---
 
 ## Auteur
