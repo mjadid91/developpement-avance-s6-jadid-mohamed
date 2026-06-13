@@ -150,18 +150,11 @@ public class GameSession : MonoBehaviour
 
     public void CollectKey()
     {
-        Debug.Log("CollectKey appelée");
-
         hasKey = true;
 
         if (keyIcon != null)
         {
-            Debug.Log("Key Icon trouvé, activation");
             keyIcon.SetActive(true);
-        }
-        else
-        {
-            Debug.LogError("Key Icon est NULL dans GameSession");
         }
     }
 

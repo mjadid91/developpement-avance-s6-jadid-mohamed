@@ -15,11 +15,20 @@ public class LevelExit : MonoBehaviour
 
         GameSession gameSession = FindAnyObjectByType<GameSession>();
 
+        Debug.Log("Requires Key = " + requiresKey);
+
+        if (gameSession != null)
+        {
+            Debug.Log("Has Key = " + gameSession.HasKey());
+        }
+
         if (requiresKey && (gameSession == null || !gameSession.HasKey()))
         {
+            Debug.Log("Porte verrouillée");
             return;
         }
 
+        Debug.Log("Chargement niveau suivant");
         Invoke(nameof(LoadNextScene), sceneLoadDelay);
     }
 
