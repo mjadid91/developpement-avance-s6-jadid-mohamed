@@ -120,10 +120,11 @@ Assets/
 
 ## Fonctionnalités bonus
 
-- HUD amélioré avec icônes pour les vies et le score.
-- Chronomètre affiché pendant le jeu et sur l'écran de victoire.
+- HUD amélioré avec des icônes pour les vies, le score et la clé récupérée.
+- Chronomètre global affiché pendant la partie et reporté sur l'écran de victoire.
+- Ajout d'une clé dans le niveau 2 avec indicateur visuel dans le HUD.
+- Porte de sortie verrouillée dans le niveau 2 nécessitant la récupération de la clé avant de pouvoir terminer le jeu.
 
-L'objectif du projet a été de réaliser un MVP complet et fonctionnel répondant à l'ensemble des fonctionnalités de base demandées dans les tutoriels.
 ---
 
 ## Auteur
