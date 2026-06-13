@@ -120,7 +120,8 @@ Assets/
 
 ## Fonctionnalités bonus
 
-Aucune fonctionnalité bonus implémentée.
+- HUD amélioré avec icônes pour les vies et le score.
+- Chronomètre affiché pendant le jeu et sur l'écran de victoire.
 
 L'objectif du projet a été de réaliser un MVP complet et fonctionnel répondant à l'ensemble des fonctionnalités de base demandées dans les tutoriels.
 ---

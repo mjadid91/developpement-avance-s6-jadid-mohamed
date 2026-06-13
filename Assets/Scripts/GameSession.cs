@@ -113,12 +113,12 @@ public class GameSession : MonoBehaviour
 
     void UpdateLivesText()
     {
-        livesText.text = "Lives: " + playerLives.ToString();
+        livesText.text = playerLives.ToString();
     }
 
     void UpdateScoreText()
     {
-        scoreText.text = "Score: " + score.ToString();
+        scoreText.text = score.ToString();
     }
 
     public int GetScore()
