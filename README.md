@@ -10,11 +10,11 @@ Jeu de plateforme 2D développé avec Unity, inspiré du style Mario.
 
 Le joueur doit traverser deux niveaux en évitant les ennemis, les pics et l'eau, tout en récupérant des pièces et des points de vie afin d'atteindre la sortie.
 
-Le premier niveau a été conçu comme le niveau principal du jeu. Il permet de découvrir et d'utiliser l'ensemble des mécaniques demandées dans les tutoriels : déplacement, saut, escalade d'échelles, ennemis, pics, eau, collecte de pièces et de points de vie.
+Le premier niveau a été conçu comme une introduction aux différentes mécaniques du jeu. Le joueur y découvre le déplacement, le saut, l'escalade d'échelles, les ennemis, les pièges ainsi que les objets à collecter.
 
-Le second niveau est volontairement plus court. Son objectif est de permettre au joueur d'accéder rapidement à la fin de partie afin de démontrer l'ensemble de la boucle de jeu : changement de niveau, conservation des vies et du score, écran de victoire et retour au menu principal.
+Le second niveau propose un parcours plus développé avec davantage de plateformes, d'obstacles et de collectibles. Afin d'ajouter un objectif supplémentaire, une clé doit être récupérée avant de pouvoir ouvrir la porte de sortie. Tant que la clé n'a pas été trouvée, le joueur ne peut pas terminer le niveau.
 
-Ce choix a été fait afin de faciliter la démonstration et la validation de toutes les fonctionnalités demandées dans les tutoriels.
+Ce choix permet de présenter l'ensemble des fonctionnalités demandées dans les tutoriels tout en mettant en œuvre une progression simple et cohérente jusqu'à l'écran de victoire.
 
 ---
 
