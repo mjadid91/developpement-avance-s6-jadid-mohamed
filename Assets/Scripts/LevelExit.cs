@@ -4,15 +4,23 @@ using UnityEngine.SceneManagement;
 public class LevelExit : MonoBehaviour
 {
     [SerializeField] private float sceneLoadDelay = 1f;
+    [SerializeField] private bool requiresKey = false;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Collision Exit");
-
-        if (other.CompareTag("Player"))
+        if (!other.CompareTag("Player"))
         {
-            LoadNextScene();
+            return;
         }
+
+        GameSession gameSession = FindAnyObjectByType<GameSession>();
+
+        if (requiresKey && (gameSession == null || !gameSession.HasKey()))
+        {
+            return;
+        }
+
+        Invoke(nameof(LoadNextScene), sceneLoadDelay);
     }
 
     void LoadNextScene()

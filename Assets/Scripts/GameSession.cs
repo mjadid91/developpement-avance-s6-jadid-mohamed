@@ -1,3 +1,4 @@
+using UnityEngine.UI;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,6 +11,14 @@ public class GameSession : MonoBehaviour
     [SerializeField] private TextMeshProUGUI livesText;
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private TextMeshProUGUI timerText;
+
+    [SerializeField] private Image keyImage;
+    [SerializeField] private Sprite noKeySprite;
+    [SerializeField] private Sprite keySprite;
+
+    [SerializeField] private GameObject keyIcon;
+
+    private bool hasKey = false;
 
     private float gameTime = 0f;
     private bool isTimerRunning = true;
@@ -33,6 +42,11 @@ public class GameSession : MonoBehaviour
         UpdateLivesText();
         UpdateScoreText();
         UpdateTimerText();
+
+        if (keyIcon != null)
+        {
+            keyIcon.SetActive(false);
+        }
     }
 
     void Update()
@@ -132,5 +146,27 @@ public class GameSession : MonoBehaviour
         {
             livesText.transform.parent.gameObject.SetActive(false);
         }
+    }
+
+    public void CollectKey()
+    {
+        Debug.Log("CollectKey appelée");
+
+        hasKey = true;
+
+        if (keyIcon != null)
+        {
+            Debug.Log("Key Icon trouvé, activation");
+            keyIcon.SetActive(true);
+        }
+        else
+        {
+            Debug.LogError("Key Icon est NULL dans GameSession");
+        }
+    }
+
+    public bool HasKey()
+    {
+        return hasKey;
     }
 }
