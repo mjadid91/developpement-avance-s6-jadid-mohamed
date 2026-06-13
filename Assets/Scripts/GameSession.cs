@@ -9,6 +9,10 @@ public class GameSession : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI livesText;
     [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private TextMeshProUGUI timerText;
+
+    private float gameTime = 0f;
+    private bool isTimerRunning = true;
 
     void Awake()
     {
@@ -28,6 +32,37 @@ public class GameSession : MonoBehaviour
     {
         UpdateLivesText();
         UpdateScoreText();
+        UpdateTimerText();
+    }
+
+    void Update()
+    {
+        if (isTimerRunning)
+        {
+            gameTime += Time.deltaTime;
+            UpdateTimerText();
+        }
+    }
+
+    void UpdateTimerText()
+    {
+        if (timerText != null)
+        {
+            timerText.text = "Time: " + FormatTime(gameTime);
+        }
+    }
+
+    public string GetFormattedTime()
+    {
+        return FormatTime(gameTime);
+    }
+
+    string FormatTime(float time)
+    {
+        int minutes = Mathf.FloorToInt(time / 60);
+        int seconds = Mathf.FloorToInt(time % 60);
+
+        return minutes.ToString("00") + ":" + seconds.ToString("00");
     }
 
     public void ProcessPlayerDeath()
