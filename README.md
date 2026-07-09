@@ -129,4 +129,4 @@ Assets/
 
 ## Auteur
 
-Mohamed Jadid — BUT Informatique, Groupe 6B-1, IUT d'Orsay
+Mohamed Jadid — BUT Informatique, IUT d'Orsay
